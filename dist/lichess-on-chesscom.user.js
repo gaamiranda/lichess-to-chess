@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Lichess pieces & sounds on chess.com
 // @namespace    https://github.com/goncalomiranda/lichess-on-chesscom
-// @version      1.0.0
+// @version      1.0.1
 // @description  Replaces chess.com's pieces with the lichess "cburnett" set and its move sounds with the lichess "standard" sound set.
 // @author       Gonçalo Miranda
 // @license      MIT (script); pieces: cburnett by Colin M.L. Burnett, CC BY-SA 3.0; sounds: lichess.org
@@ -21,9 +21,10 @@
   // Config
   // ---------------------------------------------------------------------------
 
-  // chess.com board sound name -> lichess sound name. Any chess.com sound not
-  // listed here (puzzle feedback, UI clicks, event notifications...) is left
-  // untouched. Set PASS_THROUGH_UNMAPPED to false to silence those instead.
+  // chess.com board sound name -> lichess sound name. `null` keeps chess.com's
+  // own sound for that event. Any chess.com sound not listed here (puzzle
+  // feedback, UI clicks, event notifications...) is left untouched; set
+  // PASS_THROUGH_UNMAPPED to false to silence those instead.
   const SOUND_MAP = {
     'move-self': 'Move',
     'move-opponent': 'Move',
@@ -31,7 +32,7 @@
     'promote': 'Move',
     'premove': 'Move',
     'capture': 'Capture',
-    'move-check': 'Move', // lichess "standard" has no check sound; checks just sound like moves
+    'move-check': null, // lichess "standard" has no check sound, so keep chess.com's
     'game-start': 'GenericNotify',
     'game-end': 'GenericNotify',
     'notify': 'GenericNotify',
@@ -157,9 +158,9 @@
       if (!m) return null;
       const base = m[1];
       const key = base in SOUND_MAP ? base : base.replace(/-[0-9a-f]{6,8}$/i, '');
+      if (!(key in SOUND_MAP)) return PASS_THROUGH_UNMAPPED ? null : silence();
       const lichessName = SOUND_MAP[key];
-      if (lichessName && SOUNDS[lichessName]) return soundUrl(lichessName);
-      return PASS_THROUGH_UNMAPPED ? null : silence();
+      return lichessName && SOUNDS[lichessName] ? soundUrl(lichessName) : null;
     };
 
     const XHR = win.XMLHttpRequest;

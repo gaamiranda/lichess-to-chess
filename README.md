@@ -39,14 +39,16 @@ Settings persist across reloads (`GM_setValue`).
 
 | chess.com event                                          | lichess sound   |
 | -------------------------------------------------------- | --------------- |
-| `move-self`, `move-opponent`, `castle`, `promote`, `premove`, `move-check` | `Move`          |
+| `move-self`, `move-opponent`, `castle`, `promote`, `premove` | `Move`          |
 | `capture`                                                | `Capture`       |
 | `game-start`, `game-end`, `notify`                       | `GenericNotify` |
 | `tenseconds`                                             | `LowTime`       |
 | `illegal`                                                | `Error`         |
+| `move-check`                                             | *chess.com's own* |
 
-`move-check` maps to `Move` because lichess's standard set has no check sound
-(`Check.mp3` is a symlink to `Silence.mp3`); on lichess a check just sounds like the move.
+`move-check` is left to chess.com because lichess's standard set has no check sound
+(`Check.mp3` in the lila repo is a symlink to `Silence.mp3`). A `null` in `SOUND_MAP`
+means "keep chess.com's sound for this event".
 
 Sounds not in the table (puzzle "correct"/"result" jingles, UI clicks, event notifications) pass
 through unchanged. Set `PASS_THROUGH_UNMAPPED = false` in `src/userscript.js` to silence them.

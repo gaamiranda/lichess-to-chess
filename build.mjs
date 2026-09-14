@@ -22,8 +22,8 @@ const PIECES = {
 };
 
 // lichess sound names we embed (mapping from chess.com events lives in src/userscript.js)
-// Note: the standard set has no check sound (Check.mp3 is a symlink to Silence.mp3);
-// lichess plays the plain move/capture sound on check, so we map move-check -> Move.
+// Note: the standard set has no check sound (Check.mp3 is a symlink to Silence.mp3),
+// so move-check is left to chess.com (see SOUND_MAP in src/userscript.js).
 const SOUNDS = ['Move', 'Capture', 'GenericNotify', 'LowTime', 'Error'];
 
 const refresh = process.argv.includes('--refresh');
