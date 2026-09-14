@@ -1,0 +1,12 @@
+{
+  "name": "lichess-on-chesscom",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Tampermonkey userscript: lichess cburnett pieces and standard sounds on chess.com",
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs",
+    "build:refresh": "node build.mjs --refresh"
+  },
+  "engines": { "node": ">=18" }
+}
