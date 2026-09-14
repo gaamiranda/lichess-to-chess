@@ -16,13 +16,18 @@ Everything is embedded in one self-contained `.user.js` (~42 KB) — no requests
 1. Install [Tampermonkey](https://www.tampermonkey.net/) in Chrome or Brave.
 2. Chromium-based browsers need **Developer mode** enabled for userscripts to run:
    go to `chrome://extensions` (or `brave://extensions`) and switch on **Developer mode** (top right).
-3. Open `dist/lichess-on-chesscom.user.js` in the browser (drag the file onto a tab, or
-   `file:///…/dist/lichess-on-chesscom.user.js`). Tampermonkey shows an install dialog — click **Install**.
+3. Install the script, either way:
+   - **Paste**: Tampermonkey icon → **Dashboard** → **+** tab, replace the template with the contents
+     of `dist/lichess-on-chesscom.user.js`, save (`Cmd/Ctrl+S`). (`pbcopy < dist/lichess-on-chesscom.user.js`
+     puts it on the clipboard on macOS.)
+   - **Drag**: in `chrome://extensions` → Tampermonkey → Details, enable **Allow access to file URLs**,
+     then drag `dist/lichess-on-chesscom.user.js` onto a tab and click **Install** in the dialog.
+     Without that permission the browser just shows the source text.
 4. In chess.com **Settings → Board and Pieces**, keep sounds **on** and the sound theme on **Default**.
    The script intercepts the default theme's files; if chess.com sounds are off there is nothing to swap.
 5. Reload chess.com.
 
-Reinstall the same way after every rebuild (Tampermonkey detects it as an update).
+After a rebuild, repeat step 3 (paste over the existing script, or re-drag — Tampermonkey treats it as an update).
 
 ## Toggling
 
