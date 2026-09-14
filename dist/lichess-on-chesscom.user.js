@@ -1,7 +1,10 @@
 // ==UserScript==
 // @name         Lichess pieces & sounds on chess.com
-// @namespace    https://github.com/goncalomiranda/lichess-on-chesscom
-// @version      1.0.1
+// @namespace    https://github.com/gaamiranda/lichess-to-chess
+// @homepageURL  https://github.com/gaamiranda/lichess-to-chess
+// @updateURL    https://raw.githubusercontent.com/gaamiranda/lichess-to-chess/main/dist/lichess-on-chesscom.user.js
+// @downloadURL  https://raw.githubusercontent.com/gaamiranda/lichess-to-chess/main/dist/lichess-on-chesscom.user.js
+// @version      1.0.2
 // @description  Replaces chess.com's pieces with the lichess "cburnett" set and its move sounds with the lichess "standard" sound set.
 // @author       Gonçalo Miranda
 // @license      MIT (script); pieces: cburnett by Colin M.L. Burnett, CC BY-SA 3.0; sounds: lichess.org

@@ -27,7 +27,11 @@ Everything is embedded in one self-contained `.user.js` (~42 KB) — no requests
    The script intercepts the default theme's files; if chess.com sounds are off there is nothing to swap.
 5. Reload chess.com.
 
-After a rebuild, repeat step 3 (paste over the existing script, or re-drag — Tampermonkey treats it as an update).
+The script carries `@updateURL`/`@downloadURL` pointing at this repo's `dist/` file on `main`, so once
+installed Tampermonkey picks up new versions on its own (or via Dashboard → Utilities → *Check for updates*).
+Only versions with a higher `@version` are installed — bump `version` in `package.json` before rebuilding.
+
+Direct install link: <https://raw.githubusercontent.com/gaamiranda/lichess-to-chess/main/dist/lichess-on-chesscom.user.js>
 
 ## Toggling
 
@@ -66,7 +70,7 @@ node build.mjs --refresh  # re-download every asset from the lichess repo
 
 To use a different piece set or sound theme, change `PIECE_SET` / `SOUND_SET` in `build.mjs`
 (names as in the lila repo, e.g. `merida`, `alpha`, `piano`, `nes`) and rebuild.
-Bump `version` in `package.json` so Tampermonkey picks the change up as an update.
+Bump `version` in `package.json` so Tampermonkey picks the change up as an update, then commit `dist/` and push.
 
 ## How it works
 

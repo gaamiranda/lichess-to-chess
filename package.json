@@ -1,6 +1,6 @@
 {
   "name": "lichess-on-chesscom",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "private": true,
   "description": "Tampermonkey userscript: lichess cburnett pieces and standard sounds on chess.com",
   "type": "module",

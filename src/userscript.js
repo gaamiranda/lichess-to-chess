@@ -1,6 +1,9 @@
 // ==UserScript==
 // @name         Lichess pieces & sounds on chess.com
-// @namespace    https://github.com/goncalomiranda/lichess-on-chesscom
+// @namespace    https://github.com/gaamiranda/lichess-to-chess
+// @homepageURL  https://github.com/gaamiranda/lichess-to-chess
+// @updateURL    https://raw.githubusercontent.com/gaamiranda/lichess-to-chess/main/dist/lichess-on-chesscom.user.js
+// @downloadURL  https://raw.githubusercontent.com/gaamiranda/lichess-to-chess/main/dist/lichess-on-chesscom.user.js
 // @version      __VERSION__
 // @description  Replaces chess.com's pieces with the lichess "__PIECE_SET__" set and its move sounds with the lichess "__SOUND_SET__" sound set.
 // @author       Gonçalo Miranda
